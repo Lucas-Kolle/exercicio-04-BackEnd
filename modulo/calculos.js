@@ -47,7 +47,7 @@ const calcularImc = function(valor1, valor2){
 
         //fórmula para calcular IMC
         resustado = peso / (altura * altura)
-        return resustado.toFixed(2)
+        return Number(resustado).toFixed(2)
     }
 
 }
@@ -71,22 +71,138 @@ const definirSituacao = function(valor1){
 
         if(valorImc >= 40){
             situação = "OBESIDADE III"
-            return situação
+            return String(situação)
         }else if(valorImc >= 35 || valorImc <= 39.9){
             situação = "OBESIDADE II"
-            return situação
+            return String(situação)
         }else if(valorImc >= 30 || valorImc <= 34.9){
             situação = "OBESIDADE I"
-            return situação
+            return String(situação)
         }else if(valorImc >= 25 || valorImc <= 29.9){
             situação = "ACIMA DO PESO"
-            return situação
+            return String(situação)
         }else if(valorImc >= 18.5 || valorImc <= 24.9){
             situação = "PESO NORMAL"
-            return situação
+            return String(situação)
         }else{
             situação = "ABAIXO DO PESO"
-            return situação
+            return String(situação)
         }
     }
 }
+
+//criando função para definir o sexo do professor 
+const definirSexoProfessor = function(sexo){
+    
+    let sexoProfessor = String(sexo).toUpperCase()
+    let professor
+
+    //validando dados
+    if(sexoProfessor == ""){
+        console.log("ERRO: Todos os campos devem ser preenchidos!!!")
+        return false
+    }else if(!isNaN(sexoProfessor)){
+        console.log("ERRO: Sexo invalido!!!")
+        return false
+    //continuando programa
+    }else{
+
+        if(sexoProfessor == "MASCULINO"){
+            professor = "Professor"
+            return professor
+        }else if(sexoProfessor == "FEMININO"){
+            professor = "Professora"
+            return professor
+        }else{
+            console.log("ERRO: Sexo invalido!!!")
+            return false
+        }
+    }
+}
+
+//criando função para definir o sexo do aluno
+const definirSexoAluno = function(sexo){
+    
+    let sexoAluno = String(sexo).toUpperCase()
+    let aluno
+
+    //validando dados
+    if(sexoAluno == ""){
+        console.log("ERRO: Todos os campos devem ser preenchidos!!!")
+        return false
+    }else if(!isNaN(sexoAluno)){
+        console.log("ERRO: Sexo invalido!!!")
+        return false
+    //continuando programa
+    }else{
+
+        if(sexoAluno == "MASCULINO"){
+            aluno = "Aluno"
+            return aluno
+        }else if(sexoAluno == "FEMININO"){
+            aluno = "Aluna"
+            return aluno
+        }else{
+            console.log("ERRO: Sexo invalido!!!")
+            return false
+        }
+    }
+}
+
+//criando função para calcular média com quatro números
+const calcularMediaQuato = function(valor1, valor2, valor3, valor4){
+
+    let nota1 = Number(valor1)
+    let nota2 = Number(valor2)
+    let nota3 = Number(valor3)
+    let nota4 = Number(valor4)
+    let mediaCalculada
+
+    //validando dados recebidos
+    if(nota1 == "" || nota2 == "" || nota3 == "" || nota4 == ""){
+        console.log("ERRO: Todas as notas devem ser preenchidas!!!")
+        return false
+    }else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
+        console.log("ERRO: Não é permitido a entrada de caracteres nos campos numéricos!!!")
+        return false
+    }else if(nota1 < 0 || nota1 > 100 || nota2 < 0 || nota2 > 100 || nota3 < 0 || nota3 > 100 || nota4 < 0 || nota4 > 100){
+        console.log("ERRO: As notas não podem ser menores que zero ou maiores que 100!!!")
+        return false
+    //continuar programa
+    }else{
+
+        //calculando média
+        mediaCalculada = (nota1 + nota2 + nota3 + nota4) / 4
+        return Number(mediaCalculada).toFixed(2)
+    }
+
+}
+
+//criando função para calcular média com dois números
+const calcularMediaDois = function(valor1, valor2){
+
+    let nota1 = Number(valor1)
+    let nota2 = Number(valor2)
+    let mediaCalculada
+
+    //validando dados recebidos
+    if(nota1 == "" || nota2 == ""){
+        console.log("ERRO: Todas as notas devem ser preenchidas!!!")
+        return false
+    }else if(isNaN(nota1) || isNaN(nota2)){
+        console.log("ERRO: Não é permitido a entrada de caracteres nos campos numéricos!!!")
+        return false
+    }else if(nota1 < 0 || nota1 > 100 || nota2 < 0 || nota2 > 100){
+        console.log("ERRO: As notas não podem ser menores que zero ou maiores que 100!!!")
+        return false
+    //continuar programa
+    }else{
+
+        //calculando média
+        mediaCalculada = (nota1 + nota2) / 2
+        return Number(mediaCalculada).toFixed(2)
+    }
+
+}
+
+console.log(calcularMediaDois("", "50"))
