@@ -53,10 +53,10 @@ const calcularImc = function(valor1, valor2){
 }
 
 //criando função para definir a situação do paciente
-const definirSituacao = function(valor1){
+const definirSituacaoPaciente = function(valor1){
 
     let valorImc = Number(valor1)
-    let situação
+    let situaçãoPaciente
 
     //validando IMC
     if(valorImc == ""){
@@ -70,23 +70,23 @@ const definirSituacao = function(valor1){
     }else{
 
         if(valorImc >= 40){
-            situação = "OBESIDADE III"
-            return String(situação)
+            situaçãoPaciente = "OBESIDADE III"
+            return String(situaçãoPaciente)
         }else if(valorImc >= 35 || valorImc <= 39.9){
-            situação = "OBESIDADE II"
-            return String(situação)
+            situaçãoPaciente = "OBESIDADE II"
+            return String(situaçãoPaciente)
         }else if(valorImc >= 30 || valorImc <= 34.9){
-            situação = "OBESIDADE I"
-            return String(situação)
+            situaçãoPaciente = "OBESIDADE I"
+            return String(situaçãoPaciente)
         }else if(valorImc >= 25 || valorImc <= 29.9){
-            situação = "ACIMA DO PESO"
-            return String(situação)
+            situaçãoPaciente = "ACIMA DO PESO"
+            return String(situaçãoPaciente)
         }else if(valorImc >= 18.5 || valorImc <= 24.9){
-            situação = "PESO NORMAL"
-            return String(situação)
+            situaçãoPaciente = "PESO NORMAL"
+            return String(situaçãoPaciente)
         }else{
-            situação = "ABAIXO DO PESO"
-            return String(situação)
+            situaçãoPaciente = "ABAIXO DO PESO"
+            return String(situaçãoPaciente)
         }
     }
 }
@@ -205,4 +205,35 @@ const calcularMediaDois = function(valor1, valor2){
 
 }
 
-console.log(calcularMediaDois("", "50"))
+//criando função para determinar situação do aluno
+const definirSituacaoAluno = function(valor1){
+
+    let media = Number(valor1)
+    let situaçãoAluno
+
+    //validando dados recebidos
+    if(media == ""){
+        console.log("ERRO: A média deve ser informada para definir a situação!!!")
+        return false
+    }else if(isNaN(media)){
+        console.log("ERRO: É proibido a entrada de carteres nos campos numéricos!!!")
+        return false
+    //continuar programa
+    }else{
+
+        if(media > 70){
+            situaçãoAluno = "APROVADO"
+            return String(situaçãoAluno)
+        }else if(media < 50){
+            situaçãoAluno = "REPROVADO"
+            return String(situaçãoAluno)
+        }else{
+            situaçãoAluno = "RECUPERAÇÃO"
+            return String(situaçãoAluno)
+        }
+
+    }
+
+}
+
+console.log(definirSituacaoAluno("49.9"))
