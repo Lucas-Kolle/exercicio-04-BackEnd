@@ -236,4 +236,68 @@ const definirSituacaoAluno = function(valor1){
 
 }
 
-console.log(definirSituacaoAluno("49.9"))
+//criando função para determinar se são pares ou impares
+const gerenciarParImpar = function(valor1, valor2, exibir){
+
+    //criando variáveis necessárias
+    let valorInicial = Number(valor1)
+    let valorFinal = Number(valor2)
+    let exibirNumeros = String(exibir).toUpperCase()
+    let numerosPares = ""
+    let numerosImpares = ""
+    let contadorPar = 0
+    let contadorImpar = 0
+
+    //validando dados
+    if(valorInicial == "" || valorFinal == ""){
+        console.log("ERRO: Não é possível realizar a separação se algum campo estiver vazio!!!")
+        return false
+    }else if(valorInicial >= valorFinal){
+        console.log("ERRO: O valor inicial não pode ser maior nem igual o final!!!")
+        return false
+    }else if(valorInicial < 0 || valorInicial > 500){
+        console.log("ERRO: O valor inicial não pode ser menor que zero ou maior que 500!!!")
+        return false
+    }else if(valorFinal < 100 || valorFinal > 1000){
+        console.log("ERRO: O valor final não pode ser menor que 100 ou maior que 1000!!!")
+        return false
+    //continua programa
+    }else{
+
+        //enquando o valor inicial for menor ou igual o final ele continua no while
+        while(valorInicial <= valorFinal){
+
+            //se o valor inicial for dividido por 2 e der resto 0 ele entra aqui
+            if(valorInicial % 2 === 0){
+                // += adiciona algo ou soma algo
+                numerosPares += valorInicial + "\n"
+                valorInicial = valorInicial +1
+                contadorPar = contadorPar +1
+            //se o valor inicial for dividido por 2 e sobrar resto ele entra aqui
+            }else{
+                // += adiciona algo ou soma algo
+                numerosImpares += valorInicial + "\n"
+                valorInicial = valorInicial +1
+                contadorImpar = contadorImpar +1
+            }
+        }
+
+        //condicional de exibição
+        if(exibirNumeros == "PARES")
+            return `Lista de números Pares:\n${numerosPares}\nQuantidade de números pares encontrados:${contadorPar}`
+        else if(exibirNumeros == "IMPARES")
+            return `Lista de números Impares:\n${numerosImpares}\nQuantidade de números pares encontrados:${contadorImpar}`
+        else if(exibirNumeros == "AMBOS")
+            return`Lista de números Pares:\n${numerosPares}Quantidade de números pares encontrados:${contadorPar}\n\nLista de números Impares:\n${numerosImpares}Quantidade de números pares encontrados:${contadorImpar}`
+        else{
+            console.log("ERRO: Opção de exibição inexistente, por favor, digite uma das opções oferecidas!!!")
+            return false
+        }
+
+    }
+
+}
+
+
+
+console.log(gerenciarParImpar("20", "200", "ambos"))
