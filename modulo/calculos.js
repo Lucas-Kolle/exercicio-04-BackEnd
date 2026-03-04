@@ -326,7 +326,6 @@ const calcularFatorial = function(valor1){
         //enquanto fatorial for maior ou igual o contador
         while(contador >= 1){
 
-            
             exibirFatorial += contador 
             resultadoMultiplicação *= contador
             contador = contador -1
@@ -339,4 +338,60 @@ const calcularFatorial = function(valor1){
     }
 }
 
-console.log(calcularFatorial("5"))
+const calcularTabuadas = function(valor1, valor2, valor3, valor4){
+
+    //criando variáveis para trabalhar com os valores
+    let tabuadaInicial = Number(valor1)
+    let contadorInicial = Number(valor2)
+    let tabuadaFinal = Number(valor3)
+    let contadorFinal = Number(valor4)
+    let exibirTabuadaInicial = ""
+    let exibirTabuadaFinal = ""
+    let resustado
+    let contarVoltas = 0
+
+    //validando dados
+    if(tabuadaInicial < 2 || tabuadaInicial > 100 || tabuadaFinal < 2 || tabuadaFinal > 100){
+        console.log("ERRO: A entrada da tabuada não pode ser maior que 100 ou menor que 2!!!")
+        return false
+    }else if(contadorInicial < 1 || contadorInicial > 50 || contadorFinal < 1 || contadorFinal > 50){
+        console.log("ERRO: O contador não pode ser maior que 50 ou menor que 1!!!")
+        return false
+    }else if(isNaN(tabuadaFinal) || isNaN(tabuadaInicial) || isNaN(contadorFinal) || isNaN(contadorInicial)){
+        console.log("ERRO: Não é permito a entrada de caracteres em campos numéricos!!!")
+        return false
+    }else if(tabuadaFinal == "" || tabuadaInicial =="" || contadorFinal == "" || contadorInicial == ""){
+        console.log("ERRO: Nemhum dos campos deve estar vazio!!!")
+        return false
+    //continuar programa
+    }else{
+
+        while(contarVoltas <= contadorInicial){
+
+            //realizar a multiplicação
+            resustado = tabuadaInicial * contarVoltas
+
+            //imprimir na tela
+            exibirTabuadaInicial += `\n${tabuadaInicial} x ${contarVoltas} = ${resustado}\n`
+            contarVoltas = contarVoltas +1
+
+        }
+
+        contarVoltas = 0
+        while(contarVoltas <= contadorFinal){
+
+            //realizar a multiplicação
+            resustado = tabuadaFinal * contarVoltas
+    
+            //imprimir na tela
+            exibirTabuadaFinal += `\n${tabuadaFinal} x ${contarVoltas} = ${resustado}\n`
+            contarVoltas = contarVoltas +1
+    
+        }
+
+        return `Tabuado do [${tabuadaInicial}]\n${exibirTabuadaInicial}\nTabuada do [${tabuadaFinal}]\n${exibirTabuadaFinal}`
+    }
+
+}
+
+console.log(calcularTabuadas("20", "50", "30", "50"))
