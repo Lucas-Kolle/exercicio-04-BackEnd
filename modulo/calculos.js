@@ -298,6 +298,45 @@ const gerenciarParImpar = function(valor1, valor2, exibir){
 
 }
 
+//criando função para calcular fatorial
+const calcularFatorial = function(valor1){
 
+    //criando variável para trabalhar com o valor 1
+    let fatorial = Number(valor1)
+    let contador = Number(fatorial)
+    let resultadoMultiplicação = 1
+    let exibirFatorial = ""
 
-console.log(gerenciarParImpar("20", "200", "ambos"))
+    //validando dados recebidos
+    if(fatorial == "" ){
+        console.log("ERRO: Não é possível calcular o fatorial se o valor estiver vazio!!!")
+        return false
+    }else if(fatorial == 1){
+        console.log("ERRO: Não é possível calcular o fatorial de 1, por favor, digite um número maior!!!")
+        return false
+    }else if(isNaN(fatorial)){
+        console.log("ERRO: Não é permitido a entrada de caracteres nos campos numéricos!!!")
+        return false
+    }else if(fatorial <= 0 ){
+        console.log("ERRO: Não é possível calcular o fatorial de um número menor ou igual a zero!!!")
+        return false
+    //continuar programa
+    }else{
+
+        //enquanto fatorial for maior ou igual o contador
+        while(contador >= 1){
+
+            
+            exibirFatorial += contador 
+            resultadoMultiplicação *= contador
+            contador = contador -1
+
+            //enquanto o contador for igual ou maior que 1, será adicionado o caracter "X", quando for menor ele para, pois deverá ser adicionado o caracter "="
+            if(contador >= 1)
+                exibirFatorial += "x"  
+        }
+        return `O fatorial de ${fatorial} é:\n${exibirFatorial} = ${resultadoMultiplicação}`
+    }
+}
+
+console.log(calcularFatorial("5"))
