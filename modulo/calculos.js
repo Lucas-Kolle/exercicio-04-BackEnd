@@ -17,7 +17,6 @@ const validarOperacao = function(operacao){
         console.log("ERRO: É obrigatório indicar a operação conforme orientado!!!")
         return false
     }else
-        console.log(operacaoMatematica)
         return true
 }
 
@@ -394,4 +393,16 @@ const calcularTabuadas = function(valor1, valor2, valor3, valor4){
 
 }
 
-console.log(calcularTabuadas("20", "50", "30", "50"))
+module.exports = {
+    calcularTabuadas,
+    calcularFatorial,
+    gerenciarParImpar,
+    definirSituacaoAluno,
+    calcularMediaDois,
+    calcularMediaQuato,
+    definirSexoAluno,
+    definirSexoProfessor,
+    definirSituacaoPaciente,
+    calcularImc,
+    validarOperacao
+}
