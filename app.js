@@ -4,7 +4,7 @@
  * Data: 04/03/2026
  * Versão: 1.0.03.26
  *******************************************************************************************************************************************************************/
-console.log("*******INICIANDO PROGRAMA*******")
+console.log("*******INICIANDO PROGRAMA*******\n")
 
 //IMPORTANDO BIBLIOTECA REEADLINE
 const readline = require("readline")
@@ -96,7 +96,6 @@ entradaDeDados.question("Digite a operação desejada (CALCULAR IMC / CALCULAR M
                                                             let situaçãoAluno = calculos.definirSituacaoAluno(media)
 
                                                             if(situaçãoAluno == "APROVADO"){
-                                                                //PAREI AQUI!! CONTINUAR DAQUI PRA BAIXO!!!
                                                                 console.log("")
                                                                 console.log(`O ${sexoAluno} ${nomeAluno} está ${situaçãoAluno} na disciplina ${nomeDisciplina}.`)
                                                                 console.log(`Curso: ${nomeCurso}\n${sexoProfessor}: ${nomeProfessor}`)
@@ -173,9 +172,68 @@ entradaDeDados.question("Digite a operação desejada (CALCULAR IMC / CALCULAR M
 
         }else if(operacaoMatematica == "CALCULAR TABUADA" || operacaoMatematica == "TABUADA"){
 
+            entradaDeDados.question("Digite a tabuada inicial:",function(valor1){
+                let tabuadaInicial = Number(valor1)
+
+                entradaDeDados.question("Digite o contador inicial:", function(valor2){
+                    let contadorInicial = Number(valor2)
+
+                    entradaDeDados.question("Digite a tabuada final:", function(valor3){
+                        let tabuadaFinal = Number(valor3)
+
+                        entradaDeDados.question("Digite o contador final:", function(valor4){
+                            let contadorFinal = Number(valor4)
+
+                            let resultado = calculos.calcularTabuadas(tabuadaInicial, contadorInicial, tabuadaFinal,contadorFinal)
+
+                            if(resultado){
+                                console.log(resultado)
+                            }else{
+                                console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado 6!!!")
+                                entradaDeDados.close
+                            }
+                        })
+                    })
+                })
+            })
+
         }else if(operacaoMatematica == "CALCULAR FATORIAL" || operacaoMatematica == "FATORIAL"){
 
+            entradaDeDados.question("Digite o valor desejado:", function(valor1){
+                let fatorial = Number(valor1)
+                let resultadoFatorial = calculos.calcularFatorial(fatorial)
+
+                if(resultadoFatorial){
+                    console.log(resultadoFatorial)
+                }else{
+                    console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado 7!!!")
+                    entradaDeDados.close
+                }
+            })
+
         }else if(operacaoMatematica == "GERENCIAR PARES E IMPARES"){
+            
+            entradaDeDados.question("Digite o número inicial:", function(valor1){
+                let numeroInicial = Number(valor1)
+
+                entradaDeDados.question("Digite o numero final:", function(valor2){
+                    let numeroFinal = Number(valor2)
+
+                    entradaDeDados.question("Você deseja exibir os numeros PARES / IMPARES ou AMBOS?:", function(exibir){
+                        let exibirResultado = String(exibir)
+
+                        let resultado = calculos.gerenciarParImpar(numeroInicial, numeroFinal,exibirResultado )
+
+                    if(resultado){
+                        console.log(resultado)
+                    }else{
+                        console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado 8!!!")
+                        entradaDeDados.close
+                    }
+                    //PAREI AQUI!! CONTINUAR DAQUI PRA BAIXO!!!
+                    })
+                })
+            })
 
         }else{
             console.log("ERRO: Operação não identificada! Por favor, digite conforme orientado!!!")
