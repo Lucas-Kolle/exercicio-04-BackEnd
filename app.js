@@ -99,46 +99,45 @@ entradaDeDados.question("Digite a operação desejada (CALCULAR IMC / CALCULAR M
                                                                 console.log()
                                                             }else if(situaçãoAluno == "REPROVADO"){
 
-                                                            }else if(situaçãoAluno == "RECUPERAÇÃO"){
+                                                            }else if(situaçãoAluno == "DE RECUPERAÇÃO"){
                                                                 console.log("O aluno ficou de RECUPERAÇÃO!!!")
                                                                 
-                                                                entradaDeDados.question("Digite a nota do aluno no exame de recuperação",function(valor5){
+                                                                entradaDeDados.question("Digite a nota do aluno no exame de recuperação:",function(valor5){
                                                                     let nota5 = valor5
                                                                     let media2
 
                                                                     media2 = calculos.calcularMediaDois(media, nota5)
                                                                     
-                                                                    //PAREI AQUI!! CORRIGIR ERRO DAQUI PRA BAIXO
                                                                     if(media2){
 
                                                                         let situaçãoAluno2 = calculos.definirSituacaoAluno2(media2)
 
                                                                         if(situaçãoAluno2){
                                                                             console.log("")
-                                                                            console.log(`O ${sexoAluno} ${nomeAluno} está ${situaçãoAluno} na disciplina ${nomeDisciplina}.`)
+                                                                            console.log(`O ${sexoAluno} ${nomeAluno} está ${situaçãoAluno2} na disciplina ${nomeDisciplina}.`)
                                                                             console.log(`Curso: ${nomeCurso}\n${sexoProfessor}: ${nomeProfessor}`)
                                                                             console.log(`Notas do ${sexoAluno}: ${nota1}, ${nota2}, ${nota3}, ${nota4}, Nota do Exame: ${nota5}`)
                                                                             console.log(`Média Final: ${media}`)
                                                                             console.log(`Média final do Exame: ${media2}`)
                                                                             console.log("*******FINALIZANDO PROGRAMA*******")
                                                                         }else{
-                                                                            console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado!!!")
+                                                                            console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado 1!!!")
                                                                             entradaDeDados.close
                                                                         }
                     
                                                                     }else{
-                                                                        console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado!!!")
+                                                                        console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado 2!!!")
                                                                         entradaDeDados.close
                                                                     }
                                                                 })
 
                                                             }else{
-                                                                console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado!!!")
+                                                                console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado 3 !!!")
                                                                 entradaDeDados.close
                                                             }
 
                                                         }else{
-                                                            console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado!!!")
+                                                            console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado 4!!!")
                                                             entradaDeDados.close
                                                         }
                                                     })
@@ -150,7 +149,7 @@ entradaDeDados.question("Digite a operação desejada (CALCULAR IMC / CALCULAR M
                             })
 
                         }else{
-                            console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado!!!")
+                            console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado 5!!!")
                             entradaDeDados.close
                         }
                     })
