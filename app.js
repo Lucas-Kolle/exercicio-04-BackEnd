@@ -99,15 +99,37 @@ entradaDeDados.question("Digite a operação desejada (CALCULAR IMC / CALCULAR M
                                                                 console.log()
                                                             }else if(situaçãoAluno == "REPROVADO"){
 
-                                                            }else if(situaçãoAluno == "RECUPERAÇÂO"){
+                                                            }else if(situaçãoAluno == "RECUPERAÇÃO"){
                                                                 console.log("O aluno ficou de RECUPERAÇÃO!!!")
                                                                 
                                                                 entradaDeDados.question("Digite a nota do aluno no exame de recuperação",function(valor5){
                                                                     let nota5 = valor5
+                                                                    let media2
 
-                                                                    media = calculos.calcularMediaDois(media, nota5)
-                                                                    // PAREI AQUI!!!!!! (ESTAVA CALCULANDO A MÉDIA APÓS O EXAME DE RECUPERAÇÃO)
-                                                                    //CRIAR CONDICIONAL PARA VALIDAR SE DEU CERTO O CALCULO DA MÉDIA
+                                                                    media2 = calculos.calcularMediaDois(media, nota5)
+                                                                    
+                                                                    //PAREI AQUI!! CORRIGIR ERRO DAQUI PRA BAIXO
+                                                                    if(media2){
+
+                                                                        let situaçãoAluno2 = calculos.definirSituacaoAluno2(media2)
+
+                                                                        if(situaçãoAluno2){
+                                                                            console.log("")
+                                                                            console.log(`O ${sexoAluno} ${nomeAluno} está ${situaçãoAluno} na disciplina ${nomeDisciplina}.`)
+                                                                            console.log(`Curso: ${nomeCurso}\n${sexoProfessor}: ${nomeProfessor}`)
+                                                                            console.log(`Notas do ${sexoAluno}: ${nota1}, ${nota2}, ${nota3}, ${nota4}, Nota do Exame: ${nota5}`)
+                                                                            console.log(`Média Final: ${media}`)
+                                                                            console.log(`Média final do Exame: ${media2}`)
+                                                                            console.log("*******FINALIZANDO PROGRAMA*******")
+                                                                        }else{
+                                                                            console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado!!!")
+                                                                            entradaDeDados.close
+                                                                        }
+                    
+                                                                    }else{
+                                                                        console.log("ERRO: Algo deu errado no processamento. Não será possivél exibir o resultado!!!")
+                                                                        entradaDeDados.close
+                                                                    }
                                                                 })
 
                                                             }else{

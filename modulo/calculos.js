@@ -227,7 +227,35 @@ const definirSituacaoAluno = function(valor1){
             situaçãoAluno = "REPROVADO"
             return String(situaçãoAluno)
         }else{
-            situaçãoAluno = "RECUPERAÇÃO"
+            situaçãoAluno = "DE RECUPERAÇÃO"
+            return String(situaçãoAluno)
+        }
+
+    }
+
+}
+
+//definir situação do aluno caso esteja de recuperação
+const definirSituacaoAluno2 = function(valor1){
+
+    let media = Number(valor1)
+    let situaçãoAluno
+
+    //validando dados recebidos
+    if(media == ""){
+        console.log("ERRO: A média deve ser informada para definir a situação!!!")
+        return false
+    }else if(isNaN(media)){
+        console.log("ERRO: É proibido a entrada de carteres nos campos numéricos!!!")
+        return false
+    //continuar programa
+    }else{
+
+        if(media > 70){
+            situaçãoAluno = "APROVADO"
+            return String(situaçãoAluno)
+        }else{
+            situaçãoAluno = "REPROVADO"
             return String(situaçãoAluno)
         }
 
@@ -404,5 +432,6 @@ module.exports = {
     definirSexoProfessor,
     definirSituacaoPaciente,
     calcularImc,
-    validarOperacao
+    validarOperacao,
+    definirSituacaoAluno2
 }
