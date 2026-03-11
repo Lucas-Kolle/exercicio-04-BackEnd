@@ -96,8 +96,23 @@ entradaDeDados.question("Digite a operação desejada (CALCULAR IMC / CALCULAR M
                                                             let situaçãoAluno = calculos.definirSituacaoAluno(media)
 
                                                             if(situaçãoAluno == "APROVADO"){
-                                                                console.log()
+                                                                //PAREI AQUI!! CONTINUAR DAQUI PRA BAIXO!!!
+                                                                console.log("")
+                                                                console.log(`O ${sexoAluno} ${nomeAluno} está ${situaçãoAluno} na disciplina ${nomeDisciplina}.`)
+                                                                console.log(`Curso: ${nomeCurso}\n${sexoProfessor}: ${nomeProfessor}`)
+                                                                console.log(`Notas do ${sexoAluno}: ${nota1}, ${nota2}, ${nota3}, ${nota4}`)
+                                                                console.log(`Média Final: ${media}`)
+                                                                console.log(`Média final do Exame:`)
+                                                                console.log("*******FINALIZANDO PROGRAMA*******")
+
                                                             }else if(situaçãoAluno == "REPROVADO"){
+                                                                console.log("")
+                                                                console.log(`O ${sexoAluno} ${nomeAluno} está ${situaçãoAluno} na disciplina ${nomeDisciplina}.`)
+                                                                console.log(`Curso: ${nomeCurso}\n${sexoProfessor}: ${nomeProfessor}`)
+                                                                console.log(`Notas do ${sexoAluno}: ${nota1}, ${nota2}, ${nota3}, ${nota4}`)
+                                                                console.log(`Média Final: ${media}`)
+                                                                console.log(`Média final do Exame:`)
+                                                                console.log("*******FINALIZANDO PROGRAMA*******")
 
                                                             }else if(situaçãoAluno == "DE RECUPERAÇÃO"){
                                                                 console.log("O aluno ficou de RECUPERAÇÃO!!!")
